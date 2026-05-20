@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Thornwood Accord Trilogy — Dark Fae Romantasy by Fern Allern</title>
+  <meta name="description" content="The Thornwood Accord Trilogy — a sweeping dark fae romantasy by Fern Allern. Three books. One impossible bargain. Enter the Thornwood.">
+  <link rel="canonical" href="https://thornwoodaccord.com/">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #0d0d0d; --bg2: #161410; --bg3: #1e1a14; --gold: #f0a500; --gold2: #c47f00; --text: #e0d8c8; --muted: #7a7060; }
+    body { background: var(--bg); color: var(--text); font-family: 'Georgia', serif; line-height: 1.7; }
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    header { background: rgba(13,13,13,0.95); border-bottom: 1px solid #2a2010; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 64px; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(4px); }
+    header .logo { font-size: 1.1rem; color: var(--gold); letter-spacing: 0.12em; text-transform: uppercase; font-style: normal; }
+    nav a { color: var(--text); margin-left: 2rem; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; }
+    nav a:hover { color: var(--gold); text-decoration: none; }
+    /* Hero */
+    .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 4rem 2rem; background: linear-gradient(180deg, #0d0d0d 0%, #1a0f00 40%, #0d0d0d 100%); position: relative; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 40%, rgba(240,165,0,0.06) 0%, transparent 60%); pointer-events: none; }
+    .hero-content { position: relative; z-index: 1; max-width: 800px; }
+    .hero-tagline { font-size: 0.8rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; opacity: 0.8; }
+    .hero h1 { font-size: clamp(2.8rem, 8vw, 5.5rem); line-height: 1.05; color: #fff; margin-bottom: 0.5rem; }
+    .hero h1 .subtitle { display: block; font-size: 0.55em; letter-spacing: 0.15em; color: var(--gold); text-transform: uppercase; font-weight: normal; margin-bottom: 0.5rem; }
+    .hero .tagline-long { font-size: 1.15rem; color: var(--muted); max-width: 580px; margin: 1.5rem auto 2.5rem; font-style: italic; }
+    .btn { display: inline-block; padding: 0.9rem 2.2rem; font-size: 0.9rem; font-weight: bold; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 2px; margin: 0.5rem; transition: all 0.2s; }
+    .btn-gold { background: var(--gold); color: #111; }
+    .btn-gold:hover { background: var(--gold2); text-decoration: none; }
+    .btn-outline { background: transparent; border: 1px solid var(--gold); color: var(--gold); }
+    .btn-outline:hover { background: var(--gold); color: #111; text-decoration: none; }
+    /* Thorn divider */
+    .thorn-divider { text-align: center; padding: 2rem 0; color: var(--gold); font-size: 1.2rem; letter-spacing: 0.5rem; opacity: 0.4; }
+    /* Books section */
+    .books-section { padding: 6rem 2rem; background: var(--bg2); }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label { font-size: 0.8rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+    .section-title { font-size: clamp(1.8rem, 4vw, 2.8rem); color: #fff; margin-bottom: 3rem; }
+    .books-list { display: flex; flex-direction: column; gap: 4rem; }
+    .book-entry { display: grid; grid-template-columns: 200px 1fr; gap: 3rem; align-items: start; }
+    .book-entry:nth-child(even) { grid-template-columns: 1fr 200px; direction: rtl; }
+    .book-entry:nth-child(even) > * { direction: ltr; }
+    @media (max-width: 720px) {
+      .book-entry, .book-entry:nth-child(even) { grid-template-columns: 1fr; direction: ltr; }
+      nav { display: none; }
+    }
+    .book-cover-placeholder { aspect-ratio: 2/3; background: var(--bg3); border: 1px solid #3a2800; border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 1.5rem; }
+    .book-cover-placeholder .cover-title { color: var(--gold); font-size: 1rem; margin-top: 0.8rem; }
+    .book-cover-placeholder .cover-author { color: var(--muted); font-size: 0.8rem; margin-top: 0.3rem; }
+    .book-cover-icon { font-size: 3rem; }
+    .book-info .book-num { font-size: 0.75rem; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.5rem; }
+    .book-info h3 { font-size: 2rem; color: #fff; margin-bottom: 0.5rem; }
+    .book-info .book-desc { color: var(--muted); margin-bottom: 1.5rem; font-size: 1.05rem; line-height: 1.8; }
+    .tropes { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+    .trope { font-size: 0.75rem; letter-spacing: 0.1em; border: 1px solid #3a2800; color: var(--gold); padding: 0.25rem 0.7rem; border-radius: 20px; }
+    .book-status-badge { display: inline-block; padding: 0.4rem 1rem; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 2px; }
+    .badge-soon { background: var(--bg3); border: 1px solid var(--gold); color: var(--gold); }
+    .badge-available { background: var(--gold); color: #111; font-weight: bold; }
+    /* World section */
+    .world-section { padding: 6rem 2rem; }
+    .world-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem; }
+    .world-card { background: var(--bg2); border: 1px solid #2a2010; border-radius: 4px; padding: 2rem; }
+    .world-card-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .world-card h4 { color: var(--gold); margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .world-card p { color: var(--muted); font-size: 0.95rem; }
+    /* CTA */
+    .cta-section { padding: 6rem 2rem; background: var(--bg2); text-align: center; }
+    .cta-inner { max-width: 700px; margin: 0 auto; }
+    .cta-inner h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); color: #fff; margin-bottom: 1rem; }
+    .cta-inner p { color: var(--muted); margin-bottom: 2rem; font-size: 1.05rem; }
+    footer { background: var(--bg); border-top: 1px solid #2a2010; padding: 3rem 2rem; text-align: center; color: var(--muted); font-size: 0.85rem; }
+    footer a { color: var(--gold); }
+    .footer-links { margin-bottom: 1rem; }
+    .footer-links a { margin: 0 1rem; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">The Thornwood Accord</div>
+  <nav>
+    <a href="#books">The Books</a>
+    <a href="#world">The World</a>
+    <a href="https://fernallern.com" target="_blank">Author</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-tagline">A Dark Fae Romantasy Trilogy</div>
+    <h1>
+      <span class="subtitle">The Thornwood Accord</span>
+      Where every bargain<br>has a price
+    </h1>
+    <p class="tagline-long">Three mortal women. Three fae lords who were never meant to want them. One ancient accord that is beginning to unravel — and a love that might unmake everything.</p>
+    <a href="#books" class="btn btn-gold">Explore the Trilogy</a>
+    <a href="https://fernallern.com" target="_blank" class="btn btn-outline">Meet the Author</a>
+  </div>
+</section>
+
+<div class="thorn-divider">✦ ✦ ✦</div>
+
+<section class="books-section" id="books">
+  <div class="container">
+    <div class="section-label">The Trilogy</div>
+    <div class="section-title">Three Books. One Thornwood.</div>
+
+    <div class="books-list">
+
+      <!-- Book 1 -->
+      <div class="book-entry">
+        <div class="book-cover-placeholder">
+          <div class="book-cover-icon">🌿</div>
+          <div class="cover-title">Bound by Thorns</div>
+          <div class="cover-author">Fern Allern</div>
+        </div>
+        <div class="book-info">
+          <div class="book-num">Book One</div>
+          <h3>Bound by Thorns</h3>
+          <p class="book-desc">Lyra crossed into the Thornwood to save her sister. She never expected to be claimed by the lord who rules it.</p>
+          <p class="book-desc">Lord Calder of the Court of Ash is everything the old stories warn about: cold, beautiful, and ruthless in the way only the fae can be. The bargain he offers Lyra should be impossible to accept. But the alternative is watching her sister die in a court that sees mortals as playthings.</p>
+          <p class="book-desc">What follows is a slow, agonizing unraveling of every wall Lyra has ever built — and every reason Calder has for staying away from her.</p>
+          <div class="tropes">
+            <span class="trope">Enemies to Lovers</span>
+            <span class="trope">Fae Captive</span>
+            <span class="trope">Slow Burn</span>
+            <span class="trope">Morally Grey FLI</span>
+            <span class="trope">Found Family</span>
+          </div>
+          <span class="book-status-badge badge-soon">Coming Soon to Kindle &amp; Audible</span>
+        </div>
+      </div>
+
+      <!-- Book 2 -->
+      <div class="book-entry">
+        <div class="book-cover-placeholder">
+          <div class="book-cover-icon">🔥</div>
+          <div class="cover-title">Court of Ash and Hunger</div>
+          <div class="cover-author">Fern Allern</div>
+        </div>
+        <div class="book-info">
+          <div class="book-num">Book Two</div>
+          <h3>Court of Ash and Hunger</h3>
+          <p class="book-desc">The bargain is broken. The courts are fracturing. And the last thing Lyra should be doing is trusting the fae lord who bargained her freedom away in the first place.</p>
+          <p class="book-desc">But Calder isn't just the lord who bound her anymore — he's the only one who knows the truth about what's coming for the Thornwood. The question is whether Lyra can survive the courts long enough to help stop it.</p>
+          <div class="tropes">
+            <span class="trope">Court Intrigue</span>
+            <span class="trope">Forced Proximity</span>
+            <span class="trope">Betrayal</span>
+            <span class="trope">Dark Secrets</span>
+          </div>
+          <span class="book-status-badge badge-soon">Coming Soon</span>
+        </div>
+      </div>
+
+      <!-- Book 3 -->
+      <div class="book-entry">
+        <div class="book-cover-placeholder">
+          <div class="book-cover-icon">👑</div>
+          <div class="cover-title">Queen of the Fading Wild</div>
+          <div class="cover-author">Fern Allern</div>
+        </div>
+        <div class="book-info">
+          <div class="book-num">Book Three</div>
+          <h3>Queen of the Fading Wild</h3>
+          <p class="book-desc">All courts. All thorns. One queen who never wanted a crown.</p>
+          <p class="book-desc">The Thornwood Accord is broken. The wild places between courts are dying. And the only way to save what's left might be to become the very thing Lyra has spent the entire trilogy trying not to be.</p>
+          <p class="book-desc">An epic, emotionally devastating conclusion to the trilogy.</p>
+          <div class="tropes">
+            <span class="trope">Chosen One</span>
+            <span class="trope">War</span>
+            <span class="trope">HEA</span>
+            <span class="trope">Sacrifice</span>
+          </div>
+          <span class="book-status-badge badge-soon">Coming Soon</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="world-section" id="world">
+  <div class="container">
+    <div class="section-label">The World</div>
+    <div class="section-title">Enter the Thornwood</div>
+    <div class="world-grid">
+      <div class="world-card">
+        <div class="world-card-icon">🌑</div>
+        <h4>The Court of Ash</h4>
+        <p>The oldest and most powerful of the fae courts. Ruled by cold logic and older bargains. Lord Calder has kept its throne for three hundred years by never letting anyone close enough to matter.</p>
+      </div>
+      <div class="world-card">
+        <div class="world-card-icon">🌿</div>
+        <h4>The Thornwood</h4>
+        <p>The wild between the courts — a forest that thinks, that grows, that hungers. It is the source of all fae magic and the thing that all three courts are quietly, desperately, secretly trying to control.</p>
+      </div>
+      <div class="world-card">
+        <div class="world-card-icon">⚖️</div>
+        <h4>The Accord</h4>
+        <p>An ancient treaty between the courts and the mortal world — binding, unbreakable, and now fraying at every edge. No one is sure who broke it first. Everyone is sure that when it fully breaks, the consequences will be catastrophic.</p>
+      </div>
+      <div class="world-card">
+        <div class="world-card-icon">🌙</div>
+        <h4>The Wild Bargains</h4>
+        <p>Fae bargains are binding in ways mortal contracts are not. They root themselves in the chest like thorns and pull tighter the harder you fight them. Lyra learns this the hard way.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2>Coming Soon to Amazon Kindle &amp; Audible</h2>
+    <p>Sign up on the author's newsletter to be notified the moment <em>Bound by Thorns</em> goes live — plus get access to exclusive excerpts and behind-the-scenes content from the Thornwood.</p>
+    <a href="https://fernallern.com#newsletter" class="btn btn-gold" target="_blank">Join the Author Newsletter</a>
+    <a href="https://fernallern.com" class="btn btn-outline" target="_blank">Meet Fern Allern</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-links">
+    <a href="#books">The Books</a>
+    <a href="#world">The World</a>
+    <a href="https://fernallern.com" target="_blank">fernallern.com</a>
+  </div>
+  <p>&copy; 2025 Fern Allern &amp; Thornwood Accord. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
