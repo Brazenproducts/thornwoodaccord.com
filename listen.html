@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Listen — The Thornwood Accord Audiobook</title>
+<meta name="description" content="Listen to The Thornwood Accord audiobook — a dark fae romantasy by Fern Allern. Chapters 1-10 available now.">
+<link rel="canonical" href="https://thornwoodaccord.com/listen.html">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #0d0d0d; --bg2: #161410; --bg3: #1e1a14; --gold: #f0a500; --gold2: #c47f00; --text: #e0d8c8; --muted: #7a7060; }
+body { background: var(--bg); color: var(--text); font-family: 'Georgia', serif; line-height: 1.7; min-height: 100vh; }
+a { color: var(--gold); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+header { background: rgba(13,13,13,0.95); border-bottom: 1px solid #2a2010; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 64px; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(4px); }
+header .logo { font-size: 1.1rem; color: var(--gold); letter-spacing: 0.12em; text-transform: uppercase; }
+nav a { color: var(--text); margin-left: 2rem; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; }
+nav a:hover { color: var(--gold); }
+
+.hero { text-align: center; padding: 3rem 2rem 2rem; background: linear-gradient(180deg, #0d0d0d 0%, #1a0f00 50%, #0d0d0d 100%); }
+.hero h1 { font-size: clamp(1.8rem, 5vw, 3rem); color: #fff; margin-bottom: 0.3rem; }
+.hero .subtitle { font-size: 1rem; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; font-weight: normal; }
+.hero .byline { color: var(--muted); font-style: italic; margin-top: 0.8rem; font-size: 0.95rem; }
+
+.player-container { max-width: 700px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+
+.now-playing { background: var(--bg2); border: 1px solid #2a2010; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; text-align: center; }
+.now-playing .label { font-size: 0.75rem; color: var(--gold); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.5rem; }
+.now-playing .chapter-title { font-size: 1.3rem; color: #fff; margin-bottom: 1rem; }
+.now-playing audio { width: 100%; margin-bottom: 0.5rem; }
+.now-playing .controls { display: flex; justify-content: center; gap: 1rem; margin-top: 0.8rem; }
+.now-playing .controls button {
+  background: none; border: 1px solid var(--gold); color: var(--gold); padding: 0.5rem 1.2rem;
+  font-size: 0.85rem; border-radius: 4px; cursor: pointer; font-family: Georgia, serif;
+  letter-spacing: 0.05em; transition: all 0.2s;
+}
+.now-playing .controls button:hover { background: var(--gold); color: #111; }
+.now-playing .controls button:disabled { opacity: 0.3; cursor: default; }
+.now-playing .controls button:disabled:hover { background: none; color: var(--gold); }
+
+.chapter-list { list-style: none; }
+.chapter-list li {
+  background: var(--bg2); border: 1px solid #2a2010; border-radius: 8px; padding: 1rem 1.2rem;
+  margin-bottom: 0.6rem; cursor: pointer; display: flex; align-items: center; gap: 1rem;
+  transition: all 0.2s;
+}
+.chapter-list li:hover { border-color: var(--gold); background: var(--bg3); }
+.chapter-list li.active { border-color: var(--gold); background: #1a1400; }
+.chapter-list li .ch-num { color: var(--gold); font-size: 0.8rem; font-weight: bold; min-width: 2rem; text-align: center; }
+.chapter-list li .ch-name { flex: 1; color: var(--text); font-size: 0.95rem; }
+.chapter-list li .ch-status { font-size: 0.75rem; color: var(--muted); }
+.chapter-list li.active .ch-status { color: var(--gold); }
+.chapter-list li.locked { opacity: 0.4; cursor: default; }
+.chapter-list li.locked:hover { border-color: #2a2010; background: var(--bg2); }
+
+.coming-soon { text-align: center; color: var(--muted); font-style: italic; padding: 2rem 0; border-top: 1px solid #2a2010; margin-top: 1.5rem; }
+
+footer { background: var(--bg); border-top: 1px solid #2a2010; padding: 2rem; text-align: center; color: var(--muted); font-size: 0.8rem; }
+
+@media(max-width:500px) {
+  .now-playing .controls { flex-wrap: wrap; }
+  .now-playing .controls button { flex: 1; min-width: 80px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Thornwood Accord</div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/listen.html" style="color:var(--gold)">Listen</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="subtitle">The Audiobook</div>
+  <h1>The Thornwood Accord</h1>
+  <p class="byline">Bound by Thorns — Book One by Fern Allern</p>
+</div>
+
+<div class="player-container">
+
+  <div class="now-playing" id="nowPlaying">
+    <div class="label">Now Playing</div>
+    <div class="chapter-title" id="chapterTitle">Chapter One: The Summons</div>
+    <audio id="audioPlayer" controls preload="metadata">
+      <source id="audioSource" src="audio/ch01.mp3" type="audio/mpeg">
+    </audio>
+    <div class="controls">
+      <button id="btnPrev" onclick="prevChapter()">← Previous</button>
+      <button id="btnRewind" onclick="rewind30()">↺ 30s</button>
+      <button id="btnForward" onclick="forward30()">30s ↻</button>
+      <button id="btnNext" onclick="nextChapter()">Next →</button>
+    </div>
+  </div>
+
+  <ul class="chapter-list" id="chapterList"></ul>
+
+  <div class="coming-soon">
+    Chapters 11–30 coming soon. The story continues…
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Fern Allern — The Thornwood Accord</p>
+</footer>
+
+<script>
+const chapters = [
+  { num: 1, title: "Chapter One: The Summons", files: ["audio/ch01.mp3"] },
+  { num: 2, title: "Chapter Two: Taken", files: ["audio/ch02_part1.mp3", "audio/ch02_part2.mp3"] },
+  { num: 3, title: "Chapter Three: The Thornwood Court", files: ["audio/ch03.mp3"] },
+  { num: 4, title: "Chapter Four: Terms", files: ["audio/ch04.mp3"] },
+  { num: 5, title: "Chapter Five: The Court's Teeth", files: ["audio/ch05.mp3"] },
+  { num: 6, title: "Chapter Six: Nightbloom", files: ["audio/ch06.mp3"] },
+  { num: 7, title: "Chapter Seven: The Hunt", files: ["audio/ch07.mp3"] },
+  { num: 8, title: "Chapter Eight: Ember and Thorn", files: ["audio/ch08.mp3"] },
+  { num: 9, title: "Chapter Nine: Secrets in the Dark", files: ["audio/ch09_part1.mp3", "audio/ch09_part2.mp3"] },
+  { num: 10, title: "Chapter Ten: The Solstice Feast", files: ["audio/ch10.mp3"] },
+];
+
+const locked = [
+  "Chapter Eleven: Old Magic", "Chapter Twelve: Half-Blood", "Chapter Thirteen: The Bond",
+  "Chapter Fourteen: Fractures", "Chapter Fifteen: What She Is", "Chapter Sixteen: Malachar's Shadow",
+  "Chapter Seventeen: Blood Bargain", "Chapter Eighteen: The Training", "Chapter Nineteen: Almost",
+  "Chapter Twenty: Revelations", "Chapter Twenty-One: Breaking Point", "Chapter Twenty-Two: Surrender",
+  "Chapter Twenty-Three: Morning", "Chapter Twenty-Four: The Accord's Price", "Chapter Twenty-Five: Shattered",
+  "Chapter Twenty-Six: Thornwood Rising", "Chapter Twenty-Seven: Found",
+  "Chapter Twenty-Eight: The Final Accord", "Chapter Twenty-Nine: New Terms", "Chapter Thirty: Home"
+];
+
+let currentChapter = 0;
+let currentPart = 0;
+const player = document.getElementById('audioPlayer');
+const source = document.getElementById('audioSource');
+const titleEl = document.getElementById('chapterTitle');
+const list = document.getElementById('chapterList');
+
+// Save/restore progress
+function saveProgress() {
+  const data = { chapter: currentChapter, part: currentPart, time: player.currentTime };
+  try { localStorage.setItem('thornwood-progress', JSON.stringify(data)); } catch(e) {}
+}
+
+function loadProgress() {
+  try {
+    const data = JSON.parse(localStorage.getItem('thornwood-progress'));
+    if (data && data.chapter < chapters.length) {
+      currentChapter = data.chapter;
+      currentPart = data.part || 0;
+      loadCurrent(false);
+      player.addEventListener('loadedmetadata', function once() {
+        player.currentTime = data.time || 0;
+        player.removeEventListener('loadedmetadata', once);
+      });
+    }
+  } catch(e) {}
+}
+
+function loadCurrent(autoplay = true) {
+  const ch = chapters[currentChapter];
+  source.src = ch.files[currentPart];
+  player.load();
+  titleEl.textContent = ch.title + (ch.files.length > 1 ? ` (Part ${currentPart + 1})` : '');
+  if (autoplay) player.play();
+  updateList();
+  document.getElementById('btnPrev').disabled = (currentChapter === 0 && currentPart === 0);
+  document.getElementById('btnNext').disabled = (currentChapter === chapters.length - 1 && currentPart === chapters[currentChapter].files.length - 1);
+}
+
+function nextChapter() {
+  const ch = chapters[currentChapter];
+  if (currentPart < ch.files.length - 1) {
+    currentPart++;
+  } else if (currentChapter < chapters.length - 1) {
+    currentChapter++;
+    currentPart = 0;
+  } else return;
+  loadCurrent();
+}
+
+function prevChapter() {
+  if (player.currentTime > 5) { player.currentTime = 0; return; }
+  if (currentPart > 0) {
+    currentPart--;
+  } else if (currentChapter > 0) {
+    currentChapter--;
+    currentPart = chapters[currentChapter].files.length - 1;
+  } else return;
+  loadCurrent();
+}
+
+function rewind30() { player.currentTime = Math.max(0, player.currentTime - 30); }
+function forward30() { player.currentTime = Math.min(player.duration, player.currentTime + 30); }
+
+// Auto-advance parts and chapters
+player.addEventListener('ended', () => { saveProgress(); nextChapter(); });
+player.addEventListener('timeupdate', () => { if (Math.floor(player.currentTime) % 10 === 0) saveProgress(); });
+
+function updateList() {
+  list.innerHTML = '';
+  chapters.forEach((ch, i) => {
+    const li = document.createElement('li');
+    if (i === currentChapter) li.className = 'active';
+    li.innerHTML = `<span class="ch-num">${ch.num}</span><span class="ch-name">${ch.title}</span><span class="ch-status">${i === currentChapter ? '▶ Playing' : ''}</span>`;
+    li.onclick = () => { currentChapter = i; currentPart = 0; loadCurrent(); };
+    list.appendChild(li);
+  });
+  locked.forEach((title, i) => {
+    const li = document.createElement('li');
+    li.className = 'locked';
+    li.innerHTML = `<span class="ch-num">${11 + i}</span><span class="ch-name">${title}</span><span class="ch-status">🔒</span>`;
+    list.appendChild(li);
+  });
+}
+
+updateList();
+loadProgress();
+</script>
+</body>
+</html>
