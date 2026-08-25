@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Thornwood Accord — The Elvin Trilogy by Fern Allern</title>
+<meta name="description" content="A dark fae romantasy trilogy by Fern Allern. Book One: The Thornwood Accord — free audiobook, 10 chapters available now. Begin the Elvin Trilogy.">
+<link rel="canonical" href="https://thornwoodaccord.com/">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #0d0d0d;
+  --bg2: #161410;
+  --bg3: #1e1a14;
+  --gold: #f0a500;
+  --gold2: #c47f00;
+  --text: #e0d8c8;
+  --muted: #7a7060;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: 'Georgia', serif; line-height: 1.7; min-height: 100vh; }
+a { color: var(--gold); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ─── Header ─── */
+header {
+  background: rgba(13,13,13,0.95);
+  border-bottom: 1px solid #2a2010;
+  padding: 0 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px; position: sticky; top: 0; z-index: 100;
+  backdrop-filter: blur(4px);
+}
+.logo { font-size: 1.05rem; color: var(--gold); letter-spacing: 0.14em; text-transform: uppercase; }
+nav a {
+  color: var(--text); margin-left: 2rem;
+  font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase;
+  transition: color 0.2s;
+}
+nav a:hover { color: var(--gold); text-decoration: none; }
+
+/* ─── Hero ─── */
+.hero {
+  min-height: 92vh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 5rem 2rem 6rem;
+  background:
+    radial-gradient(ellipse at 50% 55%, rgba(240,165,0,0.07) 0%, transparent 65%),
+    radial-gradient(ellipse at 20% 80%, rgba(200,100,0,0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(180,70,0,0.03) 0%, transparent 50%),
+    linear-gradient(180deg, #0d0d0d 0%, #120d00 50%, #0d0d0d 100%);
+  position: relative; overflow: hidden;
+}
+.trilogy-eyebrow {
+  font-size: 0.75rem; letter-spacing: 0.35em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.8rem; opacity: 0.9;
+}
+.hero h1 {
+  font-size: clamp(3rem, 10vw, 7rem);
+  color: #fff; line-height: 1.05; margin-bottom: 0.6rem;
+  text-shadow: 0 0 80px rgba(240,165,0,0.12), 0 2px 4px rgba(0,0,0,0.6);
+  letter-spacing: -0.02em;
+}
+.hero .the-word {
+  font-size: 0.38em; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--gold); vertical-align: top; margin-top: 0.25em; display: inline-block;
+}
+.hero .subtitle {
+  font-size: clamp(0.9rem, 2.2vw, 1.15rem);
+  color: var(--gold); letter-spacing: 0.18em; text-transform: uppercase;
+  margin-top: 0.3rem; margin-bottom: 0.6rem; font-weight: normal; font-style: italic;
+}
+.hero .byline { color: var(--muted); font-style: italic; font-size: 1rem; margin-bottom: 3rem; }
+.hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+.btn-primary {
+  background: var(--gold); color: #111; padding: 0.9rem 2.4rem;
+  font-family: Georgia, serif; font-size: 0.9rem; letter-spacing: 0.1em;
+  text-transform: uppercase; border-radius: 4px;
+  display: inline-block; transition: background 0.2s;
+}
+.btn-primary:hover { background: var(--gold2); color: #111; text-decoration: none; }
+.btn-secondary {
+  background: none; color: var(--text); padding: 0.9rem 2.4rem;
+  font-family: Georgia, serif; font-size: 0.9rem; letter-spacing: 0.1em;
+  text-transform: uppercase; border: 1px solid #3a3020; border-radius: 4px;
+  display: inline-block; transition: all 0.2s;
+}
+.btn-secondary:hover { border-color: var(--gold); color: var(--gold); text-decoration: none; }
+
+.scroll-hint {
+  position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+  color: var(--muted); font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
+  animation: softpulse 2.4s ease-in-out infinite;
+}
+@keyframes softpulse { 0%,100% { opacity: 0.3; } 50% { opacity: 0.8; } }
+
+/* ─── Section base ─── */
+section { padding: 5rem 2rem; }
+.section-inner { max-width: 920px; margin: 0 auto; }
+.section-label {
+  font-size: 0.72rem; letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 0.7rem; opacity: 0.85;
+}
+.section-title { font-size: clamp(1.7rem, 4vw, 2.5rem); color: #fff; margin-bottom: 0.8rem; }
+.divider { width: 50px; height: 1px; background: var(--gold); margin: 1.5rem 0; opacity: 0.4; }
+
+/* ─── Trilogy section ─── */
+.trilogy-section {
+  background: var(--bg2);
+  border-top: 1px solid #2a2010;
+  border-bottom: 1px solid #2a2010;
+}
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.4rem; margin-top: 2.5rem;
+}
+.book-card {
+  background: var(--bg3); border: 1px solid #2a2010; border-radius: 10px;
+  padding: 2rem 1.6rem; position: relative; overflow: hidden;
+  transition: border-color 0.2s;
+}
+.book-card:hover { border-color: #3a2c10; }
+.book-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.book-card.coming-soon::before { opacity: 0.25; }
+.book-num {
+  font-size: 0.68rem; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 0.5rem;
+}
+.book-title { font-size: 1.25rem; color: #fff; margin-bottom: 0.7rem; line-height: 1.3; }
+.book-tag {
+  display: inline-block; font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 0.18rem 0.65rem; border-radius: 3px; margin-bottom: 1rem;
+}
+.book-tag.available { background: rgba(240,165,0,0.12); color: var(--gold); border: 1px solid rgba(240,165,0,0.28); }
+.book-tag.soon { background: rgba(255,255,255,0.04); color: var(--muted); border: 1px solid #2a2010; }
+.book-desc { color: var(--muted); font-size: 0.88rem; line-height: 1.7; font-style: italic; }
+.book-link { display: inline-block; margin-top: 1.4rem; font-size: 0.83rem; color: var(--gold); letter-spacing: 0.05em; }
+.book-link:hover { text-decoration: underline; }
+
+/* ─── Audio section ─── */
+.audio-section { border-top: 1px solid #1a1a1a; }
+.chapter-preview {
+  background: var(--bg2); border: 1px solid #2a2010; border-radius: 12px;
+  padding: 2rem 2rem 1.8rem; margin-top: 2rem;
+}
+.preview-label {
+  font-size: 0.68rem; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 0.5rem;
+}
+.preview-title { font-size: 1.15rem; color: #fff; margin-bottom: 1.2rem; }
+.preview-audio { width: 100%; margin-bottom: 1.2rem; accent-color: var(--gold); }
+.chapter-count { color: var(--muted); font-size: 0.88rem; font-style: italic; }
+.chapter-count strong { color: var(--text); font-style: normal; }
+
+/* ─── Author section ─── */
+.author-section {
+  background: var(--bg2);
+  border-top: 1px solid #2a2010;
+  border-bottom: 1px solid #2a2010;
+}
+.author-inner { max-width: 680px; margin: 0 auto; }
+.author-monogram {
+  width: 68px; height: 68px; border-radius: 50%;
+  background: linear-gradient(135deg, #2a1f00, #1a1000);
+  border: 2px solid var(--gold2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.7rem; color: var(--gold); margin-bottom: 1.5rem;
+  font-family: Georgia, serif; letter-spacing: 0;
+}
+.author-quote {
+  font-size: 1.05rem; line-height: 1.85; color: var(--text);
+  border-left: 2px solid rgba(240,165,0,0.5); padding-left: 1.5rem;
+  margin: 1.5rem 0; font-style: italic;
+}
+.author-bio { color: var(--muted); line-height: 1.85; }
+
+/* ─── Footer ─── */
+footer {
+  background: var(--bg); border-top: 1px solid #1a1a1a;
+  padding: 2.5rem 2rem; text-align: center; color: var(--muted); font-size: 0.78rem;
+}
+footer nav { margin-bottom: 1rem; }
+footer nav a {
+  color: var(--muted); margin: 0 1rem;
+  font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
+}
+footer nav a:hover { color: var(--gold); text-decoration: none; }
+
+/* ─── Responsive ─── */
+@media (max-width: 640px) {
+  header { padding: 0 1rem; }
+  nav a { margin-left: 1rem; font-size: 0.78rem; }
+  section { padding: 3.5rem 1.2rem; }
+  .hero-ctas { flex-direction: column; align-items: center; }
+  .btn-primary, .btn-secondary { width: 100%; max-width: 280px; text-align: center; }
+  .chapter-preview { padding: 1.5rem 1.2rem; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Thornwood Accord</div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/listen.html">Listen</a>
+    <a href="/about.html">About</a>
+  </nav>
+</header>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <p class="trilogy-eyebrow">The Elvin Trilogy &nbsp;·&nbsp; Book One</p>
+  <h1><span class="the-word">The</span><br>Thornwood<br>Accord</h1>
+  <p class="subtitle">A Dark Fae Romantasy</p>
+  <p class="byline">by Fern Allern</p>
+  <div class="hero-ctas">
+    <a href="/listen.html" class="btn-primary">Start Listening Free</a>
+    <a href="#trilogy" class="btn-secondary">The Trilogy</a>
+  </div>
+  <div class="scroll-hint">↓ &nbsp; scroll</div>
+</section>
+
+<!-- ─── TRILOGY ─── -->
+<section class="trilogy-section" id="trilogy">
+  <div class="section-inner">
+    <p class="section-label">The Series</p>
+    <h2 class="section-title">The Elvin Trilogy</h2>
+    <p style="color:var(--muted); max-width:580px; line-height:1.85;">Three books. One binding accord. A world where the fae still hold power — and debts are paid in ways humans were never meant to understand.</p>
+    <div class="divider"></div>
+    <div class="books-grid">
+
+      <div class="book-card available">
+        <div class="book-num">Book One</div>
+        <div class="book-title">The Thornwood Accord</div>
+        <span class="book-tag available">Audiobook — Free Now</span>
+        <p class="book-desc">She didn't choose the summons. She didn't choose the Court. But in the Thornwood, choices are luxuries — and the Accord does not negotiate.</p>
+        <a href="/listen.html" class="book-link">Listen Now →</a>
+      </div>
+
+      <div class="book-card coming-soon">
+        <div class="book-num">Book Two</div>
+        <div class="book-title">Coming Soon</div>
+        <span class="book-tag soon">In Progress</span>
+        <p class="book-desc">The second chapter of The Elvin Trilogy. The accord was only the beginning — and the Court has a long memory.</p>
+      </div>
+
+      <div class="book-card coming-soon">
+        <div class="book-num">Book Three</div>
+        <div class="book-title">Coming Soon</div>
+        <span class="book-tag soon">In Progress</span>
+        <p class="book-desc">The final reckoning. Some bargains can only be broken by those willing to pay the real price.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── AUDIO ─── -->
+<section class="audio-section" id="listen">
+  <div class="section-inner">
+    <p class="section-label">Free Audiobook</p>
+    <h2 class="section-title">Start Listening Now</h2>
+    <p style="color:var(--muted); line-height:1.85; max-width:580px;">Ten chapters of Book One are available free. Begin your journey into the Thornwood — no account, no sign-up, just press play.</p>
+    <div class="divider"></div>
+    <div class="chapter-preview">
+      <div class="preview-label">Chapter One</div>
+      <div class="preview-title">The Summons</div>
+      <audio class="preview-audio" controls preload="metadata">
+        <source src="audio/ch01.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+      <p class="chapter-count"><strong>10 chapters</strong> available free &nbsp;·&nbsp; Chapters 11–30 coming soon</p>
+    </div>
+    <div style="text-align:center; margin-top:2rem;">
+      <a href="/listen.html" class="btn-primary">Open Full Player</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── AUTHOR ─── -->
+<section class="author-section" id="about">
+  <div class="author-inner">
+    <p class="section-label">The Author</p>
+    <h2 class="section-title">Fern Allern</h2>
+    <div class="divider"></div>
+    <div class="author-monogram">F</div>
+    <blockquote class="author-quote">
+      "The fae courts exist in the spaces between what we allow ourselves to believe. I just wrote down what I found there."
+    </blockquote>
+    <p class="author-bio">Fern Allern writes dark fae romantasy with roots in folklore, old bargains, and the kind of magic that always costs something real. The Elvin Trilogy is her debut series.</p>
+    <div style="margin-top:1.8rem;">
+      <a href="/about.html" class="btn-secondary">About the Author</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/listen.html">Listen</a>
+    <a href="/about.html">About</a>
+    <a href="/privacy.html">Privacy</a>
+  </nav>
+  <p>© 2026 Fern Allern &nbsp;·&nbsp; The Thornwood Accord &nbsp;·&nbsp; The Elvin Trilogy</p>
+</footer>
+
+</body>
+</html>
